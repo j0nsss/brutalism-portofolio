@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react'
 import { cn } from '@/utils/cn'
 
 interface MarqueeProps {
@@ -10,10 +11,12 @@ interface MarqueeProps {
   textColor?:   string
 }
 
-const speedMap = {
-  slow:   'animate-marquee-slow',
-  normal: 'animate-marquee',
-  fast:   'animate-marquee-fast',
+let marqueeCount = 0
+
+const durationMap = {
+  slow:   '45s',
+  normal: '25s',
+  fast:   '12s',
 }
 
 export function Marquee({
@@ -25,7 +28,18 @@ export function Marquee({
   bgColor    = '#000',
   textColor  = '#FFE500',
 }: MarqueeProps) {
-  const doubled = [...items, ...items, ...items, ...items]
+  const uid = `mq-${++marqueeCount}`
+  const trackRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = trackRef.current
+    if (!el) return
+    el.style.animation = 'none'
+    el.offsetHeight
+    el.style.animation = ''
+  }, [items, speed, direction])
+
+  const doubled = [...items, ...items]
 
   return (
     <div
@@ -35,18 +49,24 @@ export function Marquee({
       )}
       style={{ backgroundColor: bgColor }}
     >
-      <div
-        className={cn(
-          'flex whitespace-nowrap',
-          speedMap[speed],
-          direction === 'right' && '[animation-direction:reverse]'
-        )}
-        style={{ color: textColor }}
-      >
+      <style>{`
+        .mq-track-${uid} {
+          display: flex;
+          width: max-content;
+          flex-shrink: 0;
+          animation: mq-scroll-${uid} ${durationMap[speed]} linear infinite;
+        }
+        ${direction === 'right' ? `.mq-track-${uid} { animation-direction: reverse; }` : ''}
+        @keyframes mq-scroll-${uid} {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+      <div ref={trackRef} className={`mq-track-${uid}`} style={{ color: textColor }}>
         {doubled.map((item, i) => (
-          <span key={i} className="inline-flex items-center gap-6 px-6 font-display font-black text-base uppercase tracking-widest">
+          <span key={i} className="inline-flex items-center gap-6 px-6 font-display font-black text-base uppercase tracking-widest shrink-0 whitespace-nowrap">
             {item}
-            <span className="text-brutal-red opacity-80">{separator}</span>
+            <span className="text-brutal-red opacity-80 shrink-0">{separator}</span>
           </span>
         ))}
       </div>
