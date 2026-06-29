@@ -37,7 +37,7 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-24 px-6 max-w-7xl mx-auto">
-      <SectionLabel index="05" title="Get In Touch" accent="#FF3C3C" />
+      <SectionLabel index="03" title="Get In Touch" accent="#FF3C3C" />
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-0 border-3 border-brutal-black">
         <div className="lg:col-span-2 p-10 bg-brutal-black text-brutal-white border-b-3 lg:border-b-0 lg:border-r-3 border-brutal-black space-y-8">
@@ -53,8 +53,8 @@ export default function ContactSection() {
 
           <div className="space-y-4">
             {[
-              { icon: <Mail size={16} />,     label: 'Email',    value: 'hello@yourname.dev' },
-              { icon: <MapPin size={16} />,   label: 'Lokasi',   value: 'Jakarta, Indonesia' },
+              { icon: <Mail size={16} />,     label: 'Email',    value: 'jonadalzam@gmail.com' },
+              { icon: <MapPin size={16} />,   label: 'Lokasi',   value: 'Yogyakarta, Indonesia' },
               { icon: <Calendar size={16} />, label: 'Tersedia', value: 'Mulai Jan 2025' },
             ].map(({ icon, label, value }) => (
               <div key={label} className="flex items-start gap-3 border-b border-brutal-white/20 pb-4 last:border-0">
@@ -104,12 +104,12 @@ export default function ContactSection() {
                 <div className="space-y-1.5">
                   <label className="font-mono text-xs uppercase tracking-wider">Nama</label>
                   <input name="name" value={form.name} onChange={handleChange}
-                    required placeholder="John Doe" className={inputClass} />
+                    required placeholder="Junadhan" className={inputClass} />
                 </div>
                 <div className="space-y-1.5">
                   <label className="font-mono text-xs uppercase tracking-wider">Email</label>
                   <input name="email" type="email" value={form.email} onChange={handleChange}
-                    required placeholder="john@example.com" className={inputClass} />
+                    required placeholder="jonad@example.com" className={inputClass} />
                 </div>
               </div>
               <div className="space-y-1.5">

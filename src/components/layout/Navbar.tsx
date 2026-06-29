@@ -5,10 +5,9 @@ import { cn } from '@/utils/cn'
 import { useScrollProgress } from '@/hooks/useScrollProgress'
 
 const navItems = [
-  { label: 'About',    href: '#about',    index: '01' },
-  { label: 'Work',     href: '#projects', index: '02' },
-  { label: 'Skills',   href: '#skills',   index: '03' },
-  { label: 'Contact',  href: '#contact',  index: '04' },
+  { label: 'About',   href: '#about',   index: '01' },
+  { label: 'Skills',  href: '#skills',  index: '02' },
+  { label: 'Contact', href: '#contact', index: '03' },
 ]
 
 export function Navbar() {

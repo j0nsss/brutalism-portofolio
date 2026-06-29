@@ -16,7 +16,7 @@ const categories: { key: SkillCategory; label: string }[] = [
 export default function SkillsSection() {
   return (
     <section id="skills" className="py-24 px-6 max-w-7xl mx-auto">
-      <SectionLabel index="03" title="Skills & Tools" />
+      <SectionLabel index="02" title="Skills & Tools" />
 
       <motion.div
         variants={staggerContainer(0.1)}

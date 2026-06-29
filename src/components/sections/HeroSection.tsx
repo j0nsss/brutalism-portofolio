@@ -100,7 +100,7 @@ export function HeroSection() {
 
           <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
             <Button variant="primary" size="lg" href="#projects">
-              Lihat Karya Saya <ArrowDownRight size={20} />
+              Lihat Skill Saya <ArrowDownRight size={20} />
             </Button>
             <Button variant="outline" size="lg" href="#contact">
               Hubungi Saya
@@ -109,11 +109,11 @@ export function HeroSection() {
 
           <motion.div variants={itemVariants} className="flex gap-3 pt-2">
             {[
-              { href: 'https://github.com/username',      icon: <Github size={18} />,          label: 'GitHub' },
-              { href: 'https://linkedin.com/in/user',     icon: <Linkedin size={18} />,        label: 'LinkedIn' },
-              { href: 'https://instagram.com/username',   icon: <InstagramIcon />,              label: 'Instagram' },
-              { href: 'https://tiktok.com/@username',     icon: <TikTokIcon />,                 label: 'TikTok' },
-              { href: 'https://wa.me/6281234567890',      icon: <WhatsAppIcon />,               label: 'WhatsApp' },
+              { href: 'https://github.com/j0nsss',      icon: <Github size={18} />,          label: 'GitHub' },
+              { href: 'https://www.linkedin.com/in/junadhan-alzam-0789113a7/',     icon: <Linkedin size={18} />,        label: 'LinkedIn' },
+              { href: 'https://instagram.com/j0_nadd',   icon: <InstagramIcon />,              label: 'Instagram' },
+              { href: 'https://tiktok.com/@jonad___',     icon: <TikTokIcon />,                 label: 'TikTok' },
+              { href: 'https://wa.me/6285704358406',      icon: <WhatsAppIcon />,               label: 'WhatsApp' },
             ].map((social) => (
               <a
                 key={social.label}
