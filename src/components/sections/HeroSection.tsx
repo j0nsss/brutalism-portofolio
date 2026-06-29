@@ -47,7 +47,7 @@ export function HeroSection() {
   const imageY = useTransform(scrollY, [0, 600], [0, 40])
   const blockY = useTransform(scrollY, [0, 600], [0, -20])
   const { text: typewriterText } = useTypewriter({
-    words: ['DEVELOPER', 'DESIGNER', 'DREAMER'],
+    words: ['DESIGNER', 'DREAMER', 'GAMER'],
     typeSpeed: 100,
     deleteSpeed: 50,
     pauseAfterType: 2000,
