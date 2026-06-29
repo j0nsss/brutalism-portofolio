@@ -47,7 +47,7 @@ export function HeroSection() {
   const imageY = useTransform(scrollY, [0, 600], [0, 40])
   const blockY = useTransform(scrollY, [0, 600], [0, -20])
   const { text: typewriterText } = useTypewriter({
-    words: ['DESIGNER', 'DREAMER', 'GAMER'],
+    words: ['FRONTEND', 'BACKEND', 'FULL-STACK'],
     typeSpeed: 100,
     deleteSpeed: 50,
     pauseAfterType: 2000,
@@ -77,14 +77,13 @@ export function HeroSection() {
             variants={itemVariants}
             className="text-display-xl font-display font-black leading-none tracking-tighter"
           >
-            CREATIVE<br />
-            <span className="text-outline">DEVELOPER</span><br />
-            <span className="text-brutal-yellow bg-brutal-black px-4 inline-flex items-center">
-              &amp;&nbsp;
-              <span className="inline-flex">
+            I'M<br />
+            <span className="inline-flex flex-col">
+              <span className="text-brutal-yellow bg-brutal-black px-4 inline-flex items-center min-h-[1.2em]" style={{ minWidth: '2ch' }}>
                 {typewriterText}
-                <span className="animate-blink inline-block w-[3px] h-[0.8em] bg-brutal-yellow ml-0.5 self-end mb-1" />
+                <span className="animate-blink inline-block w-[3px] h-[0.9em] bg-brutal-yellow ml-1 self-end mb-1" />
               </span>
+              <span className="text-outline">ENGINEER</span>
             </span>
           </motion.h1>
 
