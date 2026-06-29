@@ -29,7 +29,7 @@ export function HomePage() {
       />
       <HeroSection />
       <Marquee
-        items={['Available for Work', 'Based in Jakarta', 'Open to Remote', "Let's Build Together"]}
+        items={['Available for Work', 'Based in Yogyakarta', 'Open to Remote', "Let's Build Together"]}
         speed="normal"
         bgColor="#000"
         textColor="#FFE500"
