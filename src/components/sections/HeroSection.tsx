@@ -91,11 +91,11 @@ export function HeroSection() {
             variants={itemVariants}
             className="font-sans text-lg max-w-xl leading-relaxed"
           >
-            Saya membangun produk digital yang{' '}
+            Saya membangun produk digital berkinerja tinggi yang{' '}
             <strong className="underline decoration-brutal-yellow decoration-4">
-              berfungsi dengan baik
-            </strong>{' '}
-            dan terlihat tidak seperti yang lain. Berspesialisasi di React, TypeScript, dan pengalaman pengguna yang tidak membosankan.
+              berfungsi optimal dan tampil menonjol
+            </strong>
+            . Spesialisasi saya meliputi ekosistem JavaScript/TypeScript (React, Next.js) untuk web, serta Flutter untuk pengalaman mobile yang memikat.
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-wrap gap-4">

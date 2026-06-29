@@ -57,11 +57,10 @@ export default function AboutSection() {
               bagaimana pengguna merasakan produk.
             </p>
             <p>
-              Dengan pengalaman di React, TypeScript, dan ekosistem web modern, 
-              saya membantu tim membangun produk yang tidak hanya berfungsi, 
-              tetapi juga{' '}
+              Dengan keahlian di bidang React, Next.js, TypeScript, JavaScript, dan Flutter, 
+              saya membantu mentransformasikan ide menjadi produk digital yang{' '}
               <strong className="underline decoration-brutal-blue decoration-4">
-                meninggalkan kesan
+                fungsional, estetik, dan berkesan
               </strong>.
             </p>
           </div>

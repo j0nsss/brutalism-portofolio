@@ -1,4 +1,4 @@
-import{A as p,q as g,t,u as f,B as C}from"./index-D_uBQRbl.js";import{S as M}from"./SectionLabel-B4mq4C1T.js";/**
+import{A as p,q as g,t,u as f,B as C}from"./index-BDC_4JjV.js";import{S as M}from"./SectionLabel-Byrdd1U2.js";/**
  * @license lucide-react v0.383.0 - ISC
  *
  * This source code is licensed under the ISC license.

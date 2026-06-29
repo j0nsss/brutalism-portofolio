@@ -10,6 +10,11 @@ const navItems = [
   { label: 'Contact', href: '#contact', index: '03' },
 ]
 
+function scrollToSection(id: string) {
+  const el = document.getElementById(id)
+  if (el) el.scrollIntoView({ behavior: 'smooth' })
+}
+
 export function Navbar() {
   const [scrolled,   setScrolled]   = useState(false)
   const [menuOpen,   setMenuOpen]   = useState(false)
@@ -55,6 +60,7 @@ export function Navbar() {
             <li key={item.href}>
               <a
                 href={item.href}
+                onClick={(e) => { e.preventDefault(); scrollToSection(item.href.slice(1)) }}
                 className={cn(
                   'font-mono text-xs uppercase tracking-widest',
                   'px-3 py-2 no-underline',
@@ -72,6 +78,7 @@ export function Navbar() {
 
         <a
           href="#contact"
+          onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}
           className="hidden md:block btn-brutal bg-brutal-yellow hover:bg-brutal-yellow"
         >
           Hire Me
@@ -101,7 +108,7 @@ export function Navbar() {
                 <li key={item.href} className="border-b-3 border-brutal-black last:border-0">
                   <a
                     href={item.href}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={(e) => { e.preventDefault(); scrollToSection(item.href.slice(1)); setMenuOpen(false) }}
                     className="flex items-center gap-3 py-4 font-display font-bold text-lg no-underline hover:pl-4 transition-all"
                   >
                     <span className="font-mono text-xs text-brutal-red">[{item.index}]</span>
