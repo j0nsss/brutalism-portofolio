@@ -1,0 +1,165 @@
+@import '@fontsource/space-grotesk/400.css';
+@import '@fontsource/space-grotesk/600.css';
+@import '@fontsource/space-grotesk/700.css';
+
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brutal-border: 3px solid #000;
+  --brutal-border-thick: 5px solid #000;
+  --brutal-shadow: 4px 4px 0px 0px #000;
+  --brutal-shadow-lg: 8px 8px 0px 0px #000;
+  --brutal-radius: 0px;
+  --brutal-transition: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  *, *::before, *::after {
+    border-radius: 0 !important;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    cursor: crosshair;
+  }
+
+  body {
+    @apply bg-brutal-white text-brutal-black font-sans;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  ::selection {
+    background-color: #FFE500;
+    color: #000;
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #FFFBF0; border-left: 2px solid #000; }
+  ::-webkit-scrollbar-thumb { background: #000; }
+  ::-webkit-scrollbar-thumb:hover { background: #FF3C3C; }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold leading-none tracking-tight;
+  }
+
+  a {
+    @apply underline decoration-2 underline-offset-2;
+  }
+
+  /* Focus-visible untuk keyboard navigation */
+  *:focus-visible {
+    outline: 3px solid #0057FF;
+    outline-offset: 2px;
+  }
+
+  /* Skip to content link (aksesibilitas) */
+  .skip-to-content {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 100;
+    padding: 8px 16px;
+    background: #000;
+    color: #FFFBF0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-decoration: none;
+  }
+
+  .skip-to-content:focus {
+    top: 0;
+  }
+
+  img {
+    filter: grayscale(100%);
+    transition: filter 300ms ease;
+  }
+
+  img:hover {
+    filter: grayscale(0%);
+  }
+}
+
+@layer components {
+  .btn-brutal {
+    @apply
+      inline-flex items-center justify-center gap-2
+      px-6 py-3
+      font-display font-bold text-sm uppercase tracking-widest
+      border-3 border-brutal-black
+      shadow-brutal
+      transition-all duration-150
+      cursor-pointer
+      no-underline;
+  }
+
+  .btn-brutal:hover {
+    @apply translate-x-[3px] translate-y-[3px] shadow-none;
+  }
+
+  .btn-brutal:active {
+    @apply translate-x-[4px] translate-y-[4px] shadow-none;
+  }
+
+  .card-brutal {
+    @apply
+      border-3 border-brutal-black
+      shadow-brutal
+      bg-brutal-white
+      transition-all duration-150;
+  }
+
+  .card-brutal:hover {
+    @apply translate-x-[3px] translate-y-[3px] shadow-none;
+  }
+
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/noise.png');
+    opacity: 0.03;
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke: 2px #000;
+    color: transparent;
+  }
+
+  .text-outline-white {
+    -webkit-text-stroke: 2px #FFFBF0;
+    color: transparent;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee var(--marquee-speed, 20s) linear infinite;
+  }
+
+  .brutal-stagger {
+    transition-delay: calc(var(--index, 0) * 80ms);
+  }
+}
+
+/* ─── REDUCED MOTION ───────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
