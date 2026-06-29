@@ -139,7 +139,7 @@ export function HeroSection() {
           />
           <div className="relative border-3 border-brutal-black overflow-hidden aspect-[3/4]">
             <motion.img
-              src="/images/avatar.svg"
+              src="/images/Profile.jpeg"
               alt="Foto profil"
               loading="lazy"
               decoding="async"
