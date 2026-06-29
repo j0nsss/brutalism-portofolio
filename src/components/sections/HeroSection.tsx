@@ -80,8 +80,8 @@ export function HeroSection() {
             I'M<br />
             <span className="inline-flex flex-col">
               <span className="text-brutal-yellow bg-brutal-black px-4 inline-flex items-center min-h-[1.2em]" style={{ minWidth: '2ch' }}>
-                {typewriterText}
-                <span className="animate-blink inline-block w-[3px] h-[0.9em] bg-brutal-yellow ml-1 self-end mb-1" />
+                <span className="inline-flex items-center">{typewriterText}
+                <span className="animate-blink inline-block w-[3px] h-[0.85em] bg-brutal-yellow ml-1" /></span>
               </span>
               <span className="text-outline">ENGINEER</span>
             </span>
