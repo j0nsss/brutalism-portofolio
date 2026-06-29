@@ -99,7 +99,7 @@ export function HeroSection() {
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-            <Button variant="primary" size="lg" href="#projects">
+            <Button variant="primary" size="lg" href="#skills">
               Lihat Skill Saya <ArrowDownRight size={20} />
             </Button>
             <Button variant="outline" size="lg" href="#contact">

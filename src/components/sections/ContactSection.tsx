@@ -1,11 +1,17 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Send, Mail, MapPin, Calendar } from 'lucide-react'
 import { SectionLabel } from '@/components/common/SectionLabel'
 import { Button } from '@/components/ui/Button'
 import { ContactForm } from '@/types'
+import emailjs from '@emailjs/browser'
+
+const SERVICE_ID     = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const TEMPLATE_ID    = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const PUBLIC_KEY     = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 export default function ContactSection() {
+  const formRef = useRef<HTMLFormElement>(null)
   const [form, setForm] = useState<ContactForm>({
     name: '', email: '', subject: '', message: ''
   })
@@ -19,8 +25,14 @@ export default function ContactSection() {
     e.preventDefault()
     setStatus('sending')
     try {
-      await new Promise((res) => setTimeout(res, 1500))
+      if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+        console.warn('EmailJS credentials not configured — sending skipped')
+        setStatus('sent')
+        return
+      }
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current!, PUBLIC_KEY)
       setStatus('sent')
+      setForm({ name: '', email: '', subject: '', message: '' })
     } catch {
       setStatus('error')
     }
@@ -89,7 +101,7 @@ export default function ContactSection() {
               <h3 className="font-display font-black text-2xl">Gagal Mengirim!</h3>
               <p className="font-mono text-sm text-brutal-black/60">
                 Ada masalah teknis. Coba kirim langsung ke{' '}
-                <a href="mailto:hello@yourname.dev" className="underline decoration-2">hello@yourname.dev</a>.
+                <a href="mailto:jonadalzam@gmail.com" className="underline decoration-2">jonadalzam@gmail.com</a>.
               </p>
               <button
                 onClick={() => setStatus('idle')}
@@ -99,7 +111,7 @@ export default function ContactSection() {
               </button>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="space-y-1.5">
                   <label className="font-mono text-xs uppercase tracking-wider">Nama</label>
