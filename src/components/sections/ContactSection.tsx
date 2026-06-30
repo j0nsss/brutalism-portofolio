@@ -12,10 +12,12 @@ const PUBLIC_KEY     = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 export default function ContactSection() {
   const formRef = useRef<HTMLFormElement>(null)
+  const lastSent = useRef(0)
   const [form, setForm] = useState<ContactForm>({
     name: '', email: '', subject: '', message: ''
   })
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -23,6 +25,13 @@ export default function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    const now = Date.now()
+    if (now - lastSent.current < 30_000) {
+      setErrorMsg('Tunggu 30 detik sebelum mengirim lagi.')
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 3000)
+      return
+    }
     setStatus('sending')
     try {
       if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
@@ -31,9 +40,11 @@ export default function ContactSection() {
         return
       }
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current!, PUBLIC_KEY)
+      lastSent.current = Date.now()
       setStatus('sent')
       setForm({ name: '', email: '', subject: '', message: '' })
     } catch {
+      setErrorMsg('Ada masalah teknis. Coba kirim langsung ke')
       setStatus('error')
     }
   }
@@ -100,11 +111,13 @@ export default function ContactSection() {
               <div className="text-6xl font-black text-brutal-red">✕</div>
               <h3 className="font-display font-black text-2xl">Gagal Mengirim!</h3>
               <p className="font-mono text-sm text-brutal-black/60">
-                Ada masalah teknis. Coba kirim langsung ke{' '}
-                <a href="mailto:jonadalzam@gmail.com" className="underline decoration-2">jonadalzam@gmail.com</a>.
+                {errorMsg}{' '}
+                {errorMsg.includes('teknis') && (
+                  <a href="mailto:jonadalzam@gmail.com" className="underline decoration-2">jonadalzam@gmail.com</a>
+                )}.
               </p>
               <button
-                onClick={() => setStatus('idle')}
+                onClick={() => { setStatus('idle'); setErrorMsg('') }}
                 className="btn-brutal bg-brutal-yellow"
               >
                 Coba Lagi

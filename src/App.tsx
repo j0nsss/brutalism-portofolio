@@ -11,9 +11,6 @@ export default function App() {
 
   return (
     <>
-      <a href="#main-content" className="skip-to-content">
-        Langsung ke konten
-      </a>
       <Navbar />
       <AnimatePresence mode="wait">
         <motion.main
