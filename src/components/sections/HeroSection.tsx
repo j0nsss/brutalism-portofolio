@@ -68,7 +68,11 @@ export function HeroSection() {
         <div className="lg:col-span-8 space-y-6">
           <motion.div variants={itemVariants}>
             <span className="font-mono text-xs uppercase tracking-[0.2em] bg-brutal-green border-3 border-brutal-black px-3 py-1 inline-flex items-center gap-2">
-              <span className="w-2 h-2 bg-brutal-black rounded-none inline-block" />
+              <motion.span
+                className="w-2 h-2 bg-brutal-black inline-block"
+                animate={{ opacity: [1, 0.3, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+              />
               Available for Work
             </span>
           </motion.div>
