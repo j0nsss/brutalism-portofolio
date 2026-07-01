@@ -7,6 +7,7 @@ export interface Project {
   tags:        string[];
   accentColor: string;
   image:       string;
+  images?:     string[];
   liveUrl?:    string;
   repoUrl?:    string;
   year:        number;

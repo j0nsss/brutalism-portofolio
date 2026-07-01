@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
-  <rect width="800" height="500" fill="#FFE500"/>
-  <rect x="40" y="40" width="720" height="420" fill="none" stroke="#000" stroke-width="4"/>
-  <text x="400" y="200" font-family="monospace" font-size="24" fill="#000" text-anchor="middle" font-weight="bold" transform="rotate(-15, 400, 200)">CRUNCH</text>
-  <rect x="100" y="280" width="200" height="100" fill="#000"/>
-  <rect x="350" y="280" width="200" height="100" fill="#000"/>
-  <rect x="600" y="280" width="100" height="100" fill="#000"/>
-  <text x="400" y="440" font-family="monospace" font-size="12" fill="#000" text-anchor="middle">Expense Tracker</text>
-</svg>

@@ -60,7 +60,7 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-24 px-6 max-w-7xl mx-auto">
-      <SectionLabel index="03" title="Get In Touch" accent="#FF3C3C" />
+      <SectionLabel index="04" title="Get In Touch" accent="#FF3C3C" />
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-0 border-3 border-brutal-black">
         <div className="lg:col-span-2 p-10 bg-brutal-black text-brutal-white border-b-3 lg:border-b-0 lg:border-r-3 border-brutal-black space-y-8">

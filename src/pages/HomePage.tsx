@@ -5,6 +5,7 @@ import { SEO } from '@/components/layout/SEO'
 
 const AboutSection = lazy(() => import('@/components/sections/AboutSection'))
 const SkillsSection = lazy(() => import('@/components/sections/SkillsSection'))
+const ProjectsSection = lazy(() => import('@/components/sections/ProjectsSection'))
 const ContactSection = lazy(() => import('@/components/sections/ContactSection'))
 
 function SectionFallback() {
@@ -37,6 +38,9 @@ export function HomePage() {
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <SkillsSection />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <ProjectsSection />
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <ContactSection />

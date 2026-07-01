@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react'
 import { Card } from '@/components/ui/Card'
@@ -85,8 +86,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 <Github size={14} /> Source Code
               </a>
             )}
-            <a
-              href={`/projects/${project.slug}`}
+            <Link
+              to={`/projects/${project.slug}`}
               className={cn(
                 'ml-auto flex items-center gap-1 font-display font-bold text-xs uppercase',
                 'no-underline border-3 border-brutal-black px-3 py-1.5',
@@ -94,7 +95,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               )}
             >
               Detail <ArrowUpRight size={14} />
-            </a>
+            </Link>
           </div>
         </div>
       </Card>

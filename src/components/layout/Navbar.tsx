@@ -7,7 +7,8 @@ import { useScrollProgress } from '@/hooks/useScrollProgress'
 const navItems = [
   { label: 'About',   href: '#about',   index: '01' },
   { label: 'Skills',  href: '#skills',  index: '02' },
-  { label: 'Contact', href: '#contact', index: '03' },
+  { label: 'Projects', href: '#projects', index: '03' },
+  { label: 'Contact', href: '#contact', index: '04' },
 ]
 
 function scrollToSection(id: string) {
